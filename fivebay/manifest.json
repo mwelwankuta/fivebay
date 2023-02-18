@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Fivebay",
+  "description": "Filters eBay search results to only show auctions ending in five minutes.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "64": "icon.png"
+    }
+  },
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://www.ebay.com/*",
+    "https://*.vercel.app/",
+    "http://localhost:8080/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.ebay.com/sch/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

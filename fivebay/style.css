@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #111;
+}
+
+body {
+  padding: 4px;
+  width: 600px;
+  height: 400px;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+.loading-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  align-self: center;
+  position: absolute;
+  top: 45%;
+  left: 47%;
+  border-top-color: #0077c0;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#not-found-text {
+  text-align: center;
+  font-size: 16;
+  opacity: 0.6;
+  position: absolute;
+  top: 45%;
+  width: 100%;
+}
+
+/* Sales Item */
+.sales-item-list {
+  list-style-type: none;
+  width: 100%;
+}
+
+.sales-item {
+  border-bottom: 0.5px solid #eee;
+  display: flex;
+  flex-direction: row;
+}
+
+.sales-item-info {
+  padding: 10px 0;
+}
+
+.sales-item-image-holder {
+  margin-right: 10px;
+}
+
+.sales-item-image {
+  width: 150px;
+  height: 150px;
+  object-fit: scale-down;
+  background-color: #eee;
+}
+
+.sales-item-title {
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.sales-item-condition {
+  color: #707070;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.sales-item-time-left {
+  color: #707070;
+  font-size: 12px;
+  padding-top: 2px;
+}
+
+.sales-item-location {
+  color: #707070;
+  font-size: 14px;
+  padding-top: 2px;
+}
+
+.sales-item-price {
+  font-size: 24px;
+}
+
+/* Scroll bar */
+/* webkit browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Microsoft Edge */
+::-ms-scrollbar {
+  width: 10px;
+}
+
+::-ms-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-ms-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-ms-scrollbar-thumb:hover {
+  background: #555;
+}

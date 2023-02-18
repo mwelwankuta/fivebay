@@ -85,10 +85,12 @@ app.use(morgan("dev"));
 
 app.get("/", (_req, res) => {
   const developer = `
-    <h2>Developer</h1>
-    <a href="https://github.com/mwelwankuta>Github: @mwelwankuta</a>
-    <a href="https://linkedin.com/in/mwelwa>Linked: /in/mwelwa</a>
-    <a href="https://twitter.com/mwelwankuta>Twitter: @mwelwankuta</a>
+    <div>
+      <h2>Developer</h1>
+      <a href="https://github.com/mwelwankuta>Github: @mwelwankuta</a>
+      <a href="https://linkedin.com/in/mwelwa>Linked: /in/mwelwa</a>
+      <a href="https://twitter.com/mwelwankuta>Twitter: @mwelwankuta</a>
+    </div>
   `;
   res.send(developer);
 });
