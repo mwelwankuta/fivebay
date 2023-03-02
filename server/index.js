@@ -5,8 +5,8 @@ import express, { json } from "express";
 import morgan from "morgan";
 
 dotenv.config();
-const { EBAY_APP_ID } = process.env;
 
+const { EBAY_APP_ID } = process.env;
 const ebayEndpoint = "https://svcs.ebay.com/services/search/FindingService/v1";
 
 /**
@@ -43,7 +43,7 @@ function buildParsedSales(sale) {
 }
 
 /**
- * requests for matching sales that end in less than 5 minutes
+ * requests for matching sales that end in less than 10 minutes
  * @param {string} searchKeywords
  * @returns
  */
@@ -51,7 +51,7 @@ async function fetchItem(searchKeywords) {
   const endingItems = [];
 
   const auctionParams =
-    "?itemFilter(0).name=ListingType&itemFilter(0).value=Auction&paginationInput.entriesPerPage=15";
+    "?itemFilter(0).name=ListingType&itemFilter(0).value=Auction&paginationInput.entriesPerPage=50";
 
   const { data } = await axios.get(ebayEndpoint + auctionParams, {
     params: {
@@ -69,7 +69,7 @@ async function fetchItem(searchKeywords) {
     const durationString = items[index].sellingStatus[0].timeLeft[0];
     const { match, hours, minutes } = extractTime(durationString);
 
-    if (match && hours == 0 && minutes <= 6) {
+    if (match && hours == 0 && minutes <= 11) {
       const currentSaleItem = items[index];
       const structuredSaleItem = buildParsedSales(currentSaleItem);
       endingItems.push(structuredSaleItem);
@@ -85,14 +85,9 @@ app.use(morgan("dev"));
 
 app.get("/", (_req, res) => {
   const developer = `
-    <div>
-      <h2>Developer</h1>
-      <a href="https://github.com/mwelwankuta>Github: @mwelwankuta</a>
-      <a href="https://linkedin.com/in/mwelwa>Linked: /in/mwelwa</a>
-      <a href="https://twitter.com/mwelwankuta>Twitter: @mwelwankuta</a>
-    </div>
+    <a href="https://github.com/mwelwankuta>Github: @mwelwankuta</a>
   `;
-  res.send(developer);
+  res.status(200).send(developer);
 });
 
 app.get("/search", async (req, res) => {
@@ -100,7 +95,7 @@ app.get("/search", async (req, res) => {
   if (!keywords) {
     return res
       .status(400)
-      .send({ message: "you did not provide a search term" });
+      .send({ message: "no search term provided" });
   }
 
   try {
@@ -113,5 +108,5 @@ app.get("/search", async (req, res) => {
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`[fivebay] Server running on ${PORT}`);
 });
