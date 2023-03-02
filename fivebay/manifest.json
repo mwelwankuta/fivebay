@@ -14,13 +14,6 @@
   "permissions": ["storage", "activeTab"],
   "host_permissions": [
     "https://www.ebay.com/*",
-    "https://*.vercel.app/",
     "http://localhost:8080/*"
-  ],
-  "content_scripts": [
-    {
-      "matches": ["https://www.ebay.com/sch/*"],
-      "js": ["content.js"]
-    }
   ]
 }

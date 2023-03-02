@@ -3,18 +3,19 @@
   padding: 0;
 }
 
+body {
+  padding: 4px;
+  width: 600px;
+  height: 400px;
+  font-family: Inter, Poppins, Effra, Roboto, Helvetica, Arial, sans-serif;
+}
+
 a {
   text-decoration: none;
   color: #111;
 }
 
-body {
-  padding: 4px;
-  width: 600px;
-  height: 400px;
-  font-family: Inter, Arial, Helvetica, sans-serif;
-}
-
+/* loading indicator */
 .loading-indicator {
   width: 20px;
   height: 20px;
@@ -25,7 +26,7 @@ body {
   top: 45%;
   left: 47%;
   border-top-color: #0077c0;
-  animation: loading 1s linear infinite;
+  animation: loading 1.2s linear infinite;
 }
 
 @keyframes loading {
@@ -36,6 +37,8 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* loading indicator */
 
 #not-found-text {
   text-align: center;

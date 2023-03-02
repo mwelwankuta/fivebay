@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-  </head>
+<html lang="en">
+<head>
+  <title>fivebay</title>
+  <meta name="description" content="Filters eBay search results to only show auctions ending in five minutes.">
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
 
-  <body>
-    <div class="loading-indicator" id="loading-indicator"></div>
-    <!-- insert fetched list items-->
-    <p id="not-found-text"></p>
-    <ul class="sales-item-list" id="sales-item-list"></ul>
-    <!-- insert fetched list items-->
+<body>
+  <!-- loading indicator -->
+  <div class="loading-indicator" id="loading-indicator"></div>
 
-    <script src="popup.js"></script>
-  </body>
+  <!-- error text-->
+  <p id="not-found-text"></p>
+
+  <!-- fetched list items-->
+  <ul class="sales-item-list" id="sales-item-list"></ul>
+
+  <script src="popup.js"></script>
+</body>
+
 </html>
