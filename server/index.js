@@ -2,6 +2,7 @@ import axios from "axios";
 import cors from "cors";
 import dotenv from "dotenv";
 import express, { json } from "express";
+import path from "path";
 import morgan from "morgan";
 
 dotenv.config();
@@ -84,18 +85,13 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.get("/", (_req, res) => {
-  const developer = `
-    <a href="https://github.com/mwelwankuta>Github: @mwelwankuta</a>
-  `;
-  res.status(200).send(developer);
+  res.status(200).send("Welcome to the fivebay server")
 });
 
 app.get("/search", async (req, res) => {
   const keywords = req.query.q;
   if (!keywords) {
-    return res
-      .status(400)
-      .send({ message: "no search term provided" });
+    return res.status(400).send({ message: "no search term provided" });
   }
 
   try {
@@ -108,5 +104,5 @@ app.get("/search", async (req, res) => {
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`[fivebay] Server running on ${PORT}`);
+  console.log(`[fivebay] Server running on http://localhost:${PORT}`);
 });

@@ -49,6 +49,12 @@ a {
   width: 100%;
 }
 
+.sales-item-title {
+  font-weight: 600;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  margin-bottom: 20px;
+}
+
 /* Sales Item */
 .sales-item-list {
   list-style-type: none;

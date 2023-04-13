@@ -1,4 +1,5 @@
 const salesItemList = document.getElementById("sales-item-list");
+const salesItemTitle = document.getElementById("sales-item-title");
 const loadingIndicator = document.getElementById("loading-indicator");
 const notFoundText = document.getElementById("not-found-text");
 
@@ -58,6 +59,7 @@ function displaySaleItems(sales) {
     items += listItem(sale);
   }
 
+  salesItemTitle.innerText = "Auctions ending soon"
   salesItemList.innerHTML = items;
   stopLoading();
 }
