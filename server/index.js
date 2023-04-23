@@ -70,7 +70,7 @@ async function fetchItem(searchKeywords) {
     const durationString = items[index].sellingStatus[0].timeLeft[0];
     const { match, hours, minutes } = extractTime(durationString);
 
-    if (match && hours == 0 && minutes <= 11) {
+    if (match && hours == 0 && minutes <= 31) {
       const currentSaleItem = items[index];
       const structuredSaleItem = buildParsedSales(currentSaleItem);
       endingItems.push(structuredSaleItem);
@@ -85,7 +85,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.get("/", (_req, res) => {
-  res.status(200).send("Welcome to the fivebay server")
+  res.status(200).send("Welcome to the fivebay server");
 });
 
 app.get("/search", async (req, res) => {
